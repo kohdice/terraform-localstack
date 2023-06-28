@@ -1,0 +1,26 @@
+name: Continuous Integration of terraform-localstack
+
+run-name: ${{ github.actor }} is testing the build of terraform-localstack Docker containers.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Branch Check
+        run: |
+          echo Branch: ${{ github.head_ref }}
+      - name: Build Container
+        run: |
+          docker-compose -f docker/docker-compose.yml up -d --build
