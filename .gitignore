@@ -162,3 +162,13 @@ cython_debug/
 # OS metadata
 .DS_Store
 Thumbs.db
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
