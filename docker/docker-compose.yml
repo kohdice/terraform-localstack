@@ -3,10 +3,10 @@ version: "3.8"
 services:
   app:
     build:
-      context: ./../
+      context: ..
       dockerfile: ./docker/tflocal/Dockerfile
     volumes:
-      - ./..:/workspace
+      - ..:/workspace
     tty: true
   localstack:
     container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
@@ -22,4 +22,4 @@ services:
       - localstack-data:/tmp/localstack/data
 
 volumes:
-    localstack-data:
+  localstack-data:
