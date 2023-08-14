@@ -4,9 +4,10 @@ services:
   app:
     build:
       context: ..
-      dockerfile: ./docker/tflocal/Dockerfile
+      dockerfile: ./docker/python/Dockerfile
     volumes:
       - ..:/workspace
+    working_dir: /workspace/terraform
     tty: true
   localstack:
     container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
