@@ -3,10 +3,11 @@ version: "3.8"
 services:
   app:
     build:
-      context: ./../
-      dockerfile: ./docker/tflocal/Dockerfile
+      context: ..
+      dockerfile: ./docker/python/Dockerfile
     volumes:
-      - ./..:/workspace
+      - ..:/workspace
+    working_dir: /workspace/terraform
     tty: true
   localstack:
     container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
@@ -22,4 +23,4 @@ services:
       - localstack-data:/tmp/localstack/data
 
 volumes:
-    localstack-data:
+  localstack-data:
